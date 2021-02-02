@@ -2,20 +2,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "EasyApoSwiftPackage",
+    name: "shared",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "EasyApoSwiftPackage",
-            targets: ["EasyApoSwiftPackage"]
+            name: "shared",
+            targets: ["shared"]
         ),
     ],
     targets: [
         .binaryTarget(
-            name: "EasyApoSwiftPackage",
-            path: "./EasyApoSwiftPackage.xcframework"
+            name: "shared",
+            path: "./shared.xcframework"
         ),
     ]
 )
