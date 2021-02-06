@@ -191,6 +191,7 @@ __attribute__((swift_name("BookingClient")))
 @property (readonly) NSString *date __attribute__((swift_name("date")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) NSString * _Nullable notes __attribute__((swift_name("notes")));
+@property NSString *price __attribute__((swift_name("price")));
 @property (readonly) NSString *service __attribute__((swift_name("service")));
 @property (readonly) NSString *time __attribute__((swift_name("time")));
 @end;
@@ -224,6 +225,12 @@ __attribute__((swift_name("BookingSDK")))
  Other uncaught Kotlin exceptions are fatal.
 */
 - (void)bookingsWithCompletionHandler:(void (^)(NSArray<SharedBookingClient *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("bookings(completionHandler:)")));
+
+/**
+ @note This method converts instances of Exception to errors.
+ Other uncaught Kotlin exceptions are fatal.
+*/
+- (void)bookingsDate:(NSString *)date completionHandler:(void (^)(NSArray<SharedBookingClient *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("bookings(date:completionHandler:)")));
 
 /**
  @note This method converts instances of Exception to errors.
