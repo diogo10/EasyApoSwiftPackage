@@ -193,7 +193,6 @@ __attribute__((swift_name("BookingClient")))
 @property (readonly) NSString * _Nullable notes __attribute__((swift_name("notes")));
 @property NSString *price __attribute__((swift_name("price")));
 @property (readonly) NSString *service __attribute__((swift_name("service")));
-@property (readonly) NSString *time __attribute__((swift_name("time")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -230,7 +229,7 @@ __attribute__((swift_name("BookingSDK")))
  @note This method converts instances of Exception to errors.
  Other uncaught Kotlin exceptions are fatal.
 */
-- (void)bookingsDate:(NSString *)date completionHandler:(void (^)(NSArray<SharedBookingClient *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("bookings(date:completionHandler:)")));
+- (void)bookingsForDate:(NSString *)date completionHandler:(void (^)(NSArray<SharedBookingClient *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("bookingsFor(date:completionHandler:)")));
 
 /**
  @note This method converts instances of Exception to errors.
