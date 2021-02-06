@@ -1,5 +1,7 @@
 # EasyApoSwiftPackage
 
+*Kotlin multiplatform* 😀
+
 
 Swift package for https://easyappointments.org
 
