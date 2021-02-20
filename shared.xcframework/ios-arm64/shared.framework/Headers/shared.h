@@ -141,7 +141,7 @@ __attribute__((swift_name("KotlinBoolean")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("Booking")))
 @interface SharedBooking : SharedBase
-- (instancetype)initWithId:(NSString *)id book:(NSString *)book start:(NSString *)start end:(NSString *)end location:(NSString * _Nullable)location notes:(NSString * _Nullable)notes customerId:(int32_t)customerId isCancelled:(BOOL)isCancelled __attribute__((swift_name("init(id:book:start:end:location:notes:customerId:isCancelled:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id book:(NSString *)book start:(NSString *)start end:(NSString *)end location:(NSString * _Nullable)location notes:(NSString * _Nullable)notes customerId:(int32_t)customerId serviceId:(int32_t)serviceId isCancelled:(BOOL)isCancelled __attribute__((swift_name("init(id:book:start:end:location:notes:customerId:serviceId:isCancelled:)"))) __attribute__((objc_designated_initializer));
 - (NSString *)component1 __attribute__((swift_name("component1()")));
 - (NSString *)component2 __attribute__((swift_name("component2()")));
 - (NSString *)component3 __attribute__((swift_name("component3()")));
@@ -149,19 +149,21 @@ __attribute__((swift_name("Booking")))
 - (NSString * _Nullable)component5 __attribute__((swift_name("component5()")));
 - (NSString * _Nullable)component6 __attribute__((swift_name("component6()")));
 - (int32_t)component7 __attribute__((swift_name("component7()")));
-- (BOOL)component8 __attribute__((swift_name("component8()")));
-- (SharedBooking *)doCopyId:(NSString *)id book:(NSString *)book start:(NSString *)start end:(NSString *)end location:(NSString * _Nullable)location notes:(NSString * _Nullable)notes customerId:(int32_t)customerId isCancelled:(BOOL)isCancelled __attribute__((swift_name("doCopy(id:book:start:end:location:notes:customerId:isCancelled:)")));
+- (int32_t)component8 __attribute__((swift_name("component8()")));
+- (BOOL)component9 __attribute__((swift_name("component9()")));
+- (SharedBooking *)doCopyId:(NSString *)id book:(NSString *)book start:(NSString *)start end:(NSString *)end location:(NSString * _Nullable)location notes:(NSString * _Nullable)notes customerId:(int32_t)customerId serviceId:(int32_t)serviceId isCancelled:(BOOL)isCancelled __attribute__((swift_name("doCopy(id:book:start:end:location:notes:customerId:serviceId:isCancelled:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString *book __attribute__((swift_name("book")));
 @property (readonly) int32_t customerId __attribute__((swift_name("customerId")));
-@property (readonly) NSString *end __attribute__((swift_name("end")));
+@property NSString *end __attribute__((swift_name("end")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) BOOL isCancelled __attribute__((swift_name("isCancelled")));
 @property (readonly) NSString * _Nullable location __attribute__((swift_name("location")));
 @property (readonly) NSString * _Nullable notes __attribute__((swift_name("notes")));
-@property (readonly) NSString *start __attribute__((swift_name("start")));
+@property (readonly) int32_t serviceId __attribute__((swift_name("serviceId")));
+@property NSString *start __attribute__((swift_name("start")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -198,8 +200,7 @@ __attribute__((swift_name("BookingClient")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BookingSDK")))
 @interface SharedBookingSDK : SharedBase
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithDomain:(NSString *)domain __attribute__((swift_name("init(domain:)"))) __attribute__((objc_designated_initializer));
 
 /**
  @note This method converts instances of Exception to errors.
@@ -230,6 +231,12 @@ __attribute__((swift_name("BookingSDK")))
  Other uncaught Kotlin exceptions are fatal.
 */
 - (void)bookingsForDate:(NSString *)date completionHandler:(void (^)(NSArray<SharedBookingClient *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("bookingsFor(date:completionHandler:)")));
+
+/**
+ @note This method converts instances of Exception to errors.
+ Other uncaught Kotlin exceptions are fatal.
+*/
+- (void)changeDateBookingId:(NSString *)id date:(NSString *)date completionHandler:(void (^)(SharedBoolean * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("changeDateBooking(id:date:completionHandler:)")));
 
 /**
  @note This method converts instances of Exception to errors.
@@ -278,6 +285,7 @@ __attribute__((swift_name("BookingSDK")))
  Other uncaught Kotlin exceptions are fatal.
 */
 - (void)updateService:(SharedService *)service completionHandler:(void (^)(SharedBoolean * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("update(service:completionHandler:)")));
+@property NSString *domain __attribute__((swift_name("domain")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
