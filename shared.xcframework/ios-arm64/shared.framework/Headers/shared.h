@@ -475,6 +475,10 @@ __attribute__((swift_name("ServerSettings")))
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
+@property NSString *bookingTimeout __attribute__((swift_name("bookingTimeout")));
+@property NSString *companyEmail __attribute__((swift_name("companyEmail")));
+@property NSString *companyLink __attribute__((swift_name("companyLink")));
+@property NSString *companyName __attribute__((swift_name("companyName")));
 @property (readonly) NSString *dateFormat __attribute__((swift_name("dateFormat")));
 @property (readonly) NSString *firstWeekday __attribute__((swift_name("firstWeekday")));
 @property (readonly) BOOL requirePhoneNumber __attribute__((swift_name("requirePhoneNumber")));
