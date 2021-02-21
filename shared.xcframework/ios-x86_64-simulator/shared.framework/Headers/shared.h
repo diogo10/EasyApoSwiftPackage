@@ -190,6 +190,7 @@ __attribute__((swift_name("BookingClient")))
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString *clientName __attribute__((swift_name("clientName")));
 @property NSString *created __attribute__((swift_name("created")));
+@property NSString *currency __attribute__((swift_name("currency")));
 @property (readonly) NSString *date __attribute__((swift_name("date")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) NSString * _Nullable notes __attribute__((swift_name("notes")));
@@ -236,7 +237,19 @@ __attribute__((swift_name("BookingSDK")))
  @note This method converts instances of Exception to errors.
  Other uncaught Kotlin exceptions are fatal.
 */
+- (void)cancelBookingId:(NSString *)id completionHandler:(void (^)(SharedBoolean * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("cancelBooking(id:completionHandler:)")));
+
+/**
+ @note This method converts instances of Exception to errors.
+ Other uncaught Kotlin exceptions are fatal.
+*/
 - (void)changeDateBookingId:(NSString *)id date:(NSString *)date completionHandler:(void (^)(SharedBoolean * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("changeDateBooking(id:date:completionHandler:)")));
+
+/**
+ @note This method converts instances of Exception to errors.
+ Other uncaught Kotlin exceptions are fatal.
+*/
+- (void)changeTimeBookingId:(NSString *)id time:(NSString *)time completionHandler:(void (^)(SharedBoolean * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("changeTimeBooking(id:time:completionHandler:)")));
 
 /**
  @note This method converts instances of Exception to errors.
@@ -624,6 +637,13 @@ __attribute__((swift_name("WorkingPlanExceptionListSerializer")))
 - (instancetype)initWithTSerializer:(id<SharedKotlinx_serialization_coreKSerializer>)tSerializer __attribute__((swift_name("init(tSerializer:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 + (instancetype)workingPlanExceptionListSerializer __attribute__((swift_name("init()")));
 - (SharedKotlinx_serialization_coreJsonElement *)transformDeserializeElement:(SharedKotlinx_serialization_coreJsonElement *)element __attribute__((swift_name("transformDeserialize(element:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("EntityKt")))
+@interface SharedEntityKt : SharedBase
+@property (class, readonly) NSArray<NSString *> *currencies __attribute__((swift_name("currencies")));
+@property (class, readonly) NSArray<SharedInt *> *serviceDurations __attribute__((swift_name("serviceDurations")));
 @end;
 
 __attribute__((swift_name("KotlinThrowable")))
